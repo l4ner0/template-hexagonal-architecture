@@ -1,6 +1,5 @@
 import express, { Express } from 'express';
 import { Server }from 'http';
-import { resolve } from 'path';
 
 export class ApplicationServer {
 
