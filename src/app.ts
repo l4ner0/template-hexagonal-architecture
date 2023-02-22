@@ -3,13 +3,11 @@ import { ApplicationServer } from './server/application-server';
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
+const host: string = process.env.HOST || '0.0.0.0';
+const port: string = process.env.PORT || '3000';
+
 try {
-    const host: string = '127.0.0.1';
-    const port: string  = '3000';
-
-    const server = new ApplicationServer(host, port);
-
-    server.listen();
+     new ApplicationServer(host, port).listen();
 } catch (error) {
     console.log(error);
     process.exit(1);

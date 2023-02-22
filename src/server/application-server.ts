@@ -1,5 +1,7 @@
 import express, { Express } from 'express';
+import Router from 'express-promise-router';
 import { Server }from 'http';
+import { registerRoutes } from './routes';
 
 export class ApplicationServer {
 
@@ -12,6 +14,11 @@ export class ApplicationServer {
         this.app = express();
         this.host = _host;
         this.port = _port;
+
+        /* Config Middelware */
+        const router = Router();
+        this.app.use(router);
+        registerRoutes(router);
     }
 
     public async listen(): Promise<void> {
