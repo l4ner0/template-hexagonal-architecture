@@ -1,5 +1,4 @@
-import express, { Express } from 'express';
-import Router from 'express-promise-router';
+import express, { Express, Router } from 'express';
 import { Server }from 'http';
 import { registerRoutes } from './routes';
 
