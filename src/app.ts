@@ -6,7 +6,7 @@ const log = require('./libs/logs/winston');
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const host: string = process.env.HOST || '0.0.0.0';
-const port: string = process.env.PORT || '3000';
+const port: string = process.env.PORT || '3001';
 
 try {
   server.run(host, port);
