@@ -1,18 +1,16 @@
-const { createLogger, format, transports } = require("winston");
+import { createLogger, format, transports } from 'winston';
 
 const tsFormat = () =>
-  `${new Date().toLocaleDateString("en-US", {
-    timeZone: "America/Lima",
-  })} - ${new Date().toLocaleTimeString("en-US", {
-    timeZone: "America/Lima",
+  `${new Date().toLocaleDateString('en-US', {
+    timeZone: 'America/Lima',
+  })} - ${new Date().toLocaleTimeString('en-US', {
+    timeZone: 'America/Lima',
   })}`;
 
-module.exports = createLogger({
+export const log = createLogger({
   format: format.combine(
     format.colorize(),
-    format.printf(
-      (info: any) => `${tsFormat()} - ${info.level}: ${info.message}`
-    )
+    format.printf((info) => `${tsFormat()} - ${info.level}: ${info.message}`),
   ),
   transports: [new transports.Console()],
 });

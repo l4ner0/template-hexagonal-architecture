@@ -1,5 +1,5 @@
-import { LogPort } from "../../domain/ports/log.port";
-const log = require("../../../libs/logs/winston");
+import { LogPort } from '../../domain/ports/log.port';
+import { log } from '../../../libs/logs/winston';
 
 export class LoggerAdapter implements LogPort {
   info(message: string): void {

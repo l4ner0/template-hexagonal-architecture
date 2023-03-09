@@ -1,7 +1,7 @@
-import { Server } from "../../domain/server";
+import { Server } from '../../domain/server';
 
-import { ApplicationServerAdapter } from "../express/application-server.adapter";
-import { LoggerAdapter } from "../logger/logger.adapter";
+import { ApplicationServerAdapter } from '../express/application-server.adapter';
+import { LoggerAdapter } from '../logger/logger.adapter';
 
 const applicationServerAdapter = new ApplicationServerAdapter();
 const loggerAdapter = new LoggerAdapter();

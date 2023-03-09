@@ -1,6 +1,6 @@
-import { Server } from "http";
+import { Server } from 'http';
 export interface ApplicationServerPort {
-  listen(host: string, port: string, callaback?: Function): Promise<Server>;
+  listen(host: string, port: string, callaback?: () => void): Promise<Server>;
   configRouters(): void;
   configMiddlewares(): void;
 }
