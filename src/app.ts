@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import { server } from './server/infrastructure/dependencies/server.dependency';
-import { log } from './libs/logs/winston';
+
+const log = require('./libs/logs/winston');
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
