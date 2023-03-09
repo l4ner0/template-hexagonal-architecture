@@ -43,5 +43,10 @@
       "eslint src/**/*.ts --cache --fix",
       "prettier --write"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged"
+    }
   }
 }
