@@ -4,20 +4,17 @@ import { LogPort } from "./ports/log.port";
 export class Server {
   constructor(
     private app: ApplicationServerPort,
-    private readonly log: LogPort,
-
-    private readonly host: string,
-    private readonly port: string
+    private readonly log: LogPort
   ) {
     this.app.configRouters();
     this.app.configMiddlewares();
   }
 
-  async run(): Promise<void> {
+  async run(host: string, port: string): Promise<void> {
     try {
-      await this.app.listen(this.host, this.port, () => {
+      await this.app.listen(host, port, () => {
         this.log.info(
-          `MS is running at http://${this.host}:${this.port} in ${process.env.ENVIRONMENT} mode`
+          `MS is running at http://${host}:${port} in ${process.env.ENVIRONMENT} mode`
         );
         this.log.info("Press CTRL-C to stop\n");
       });
