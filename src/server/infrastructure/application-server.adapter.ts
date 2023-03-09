@@ -29,13 +29,10 @@ export class ApplicationServerAdapter implements ApplicationServerPort {
     this.app.use(compress());
   }
 
-  listen(host: string, port: string): Promise<Server> {
+  listen(host: string, port: string, callback: Function): Promise<Server> {
     return new Promise((resolve) => {
       const httpServer = this.app.listen(port, () => {
-        console.log(
-          `MS is running at http://${host}:${port} in ${process.env.ENVIRONMENT} mode`
-        );
-        console.log("Press CTRL-C to stop\n");
+        callback();        
         resolve(httpServer);
       });
     });

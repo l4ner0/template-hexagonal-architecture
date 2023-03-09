@@ -1,0 +1,1 @@
+Carpeta que contiene librerías a utilizar en el proyecto.
