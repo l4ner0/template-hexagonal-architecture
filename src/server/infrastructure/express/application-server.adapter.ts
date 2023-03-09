@@ -4,7 +4,7 @@ import { xssFilter, noSniff, hidePoweredBy, frameguard } from "helmet";
 import compress from "compression";
 import { registerRoutes } from "./routes";
 import { Server } from "http";
-import { ApplicationServerPort } from "../domain/application-server.port";
+import { ApplicationServerPort } from "../../domain/ports/application-server.port";
 
 export class ApplicationServerAdapter implements ApplicationServerPort {
   private app: Express;
@@ -32,7 +32,7 @@ export class ApplicationServerAdapter implements ApplicationServerPort {
   listen(host: string, port: string, callback: Function): Promise<Server> {
     return new Promise((resolve) => {
       const httpServer = this.app.listen(port, () => {
-        callback();        
+        callback();
         resolve(httpServer);
       });
     });

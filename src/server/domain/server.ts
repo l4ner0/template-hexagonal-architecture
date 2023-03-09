@@ -1,5 +1,5 @@
-import { ApplicationServerPort } from "./application-server.port";
-import { LogPort } from "../../libs/log/log.port";
+import { ApplicationServerPort } from "./ports/application-server.port";
+import { LogPort } from "./ports/log.port";
 
 export class Server {
   constructor(
@@ -7,7 +7,7 @@ export class Server {
     private readonly log: LogPort,
 
     private readonly host: string,
-    private readonly port: string    
+    private readonly port: string
   ) {
     this.app.configRouters();
     this.app.configMiddlewares();

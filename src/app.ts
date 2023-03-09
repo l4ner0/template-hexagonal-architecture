@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
-import { ApplicationServerAdapter } from "./server/infrastructure/application-server.adapter";
-import { LogWinstonAdapter } from "./libs/log/log-winston.adapter";
+import { ApplicationServerAdapter } from "./server/infrastructure/express/application-server.adapter";
+import { LoggerAdapter } from "./server/infrastructure/logger/logger.adapter";
 import { Server } from "./server/domain/server";
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
@@ -10,9 +10,9 @@ const port: string = process.env.PORT || "3000";
 
 try {
   const applicationServerAdapter = new ApplicationServerAdapter();
-  const logWinstonAdapter = new LogWinstonAdapter();
+  const loggerAdapter = new LoggerAdapter();
 
-  new Server(applicationServerAdapter, logWinstonAdapter, host, port).run();
+  new Server(applicationServerAdapter, loggerAdapter, host, port).run();
 } catch (error) {
   console.log(error);
   process.exit(1);
