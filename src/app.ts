@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { server } from "./server/infrastructure/dependencies/server";
+import { server } from "./server/infrastructure/dependencies/server.dependency";
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
