@@ -1,5 +1,5 @@
 import { ApplicationServerPort } from './ports/application-server.port';
-import { LogPort } from './ports/log.port';
+import { LogPort } from '../../common/domain/log/log.port';
 
 export class Server {
   constructor(private app: ApplicationServerPort, private readonly log: LogPort) {

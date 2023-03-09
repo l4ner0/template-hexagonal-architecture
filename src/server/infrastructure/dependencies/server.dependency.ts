@@ -1,9 +1,9 @@
 import { Server } from '../../domain/server';
 
 import { ApplicationServerAdapter } from '../express/application-server.adapter';
-import { LoggerAdapter } from '../logger/logger.adapter';
+import { WinstonAdapter } from '../../../common/infrastructure/log/winston.adapter';
 
 const applicationServerAdapter = new ApplicationServerAdapter();
-const loggerAdapter = new LoggerAdapter();
+const winstonAdapter = new WinstonAdapter();
 
-export const server = new Server(applicationServerAdapter, loggerAdapter);
+export const server = new Server(applicationServerAdapter, winstonAdapter);
