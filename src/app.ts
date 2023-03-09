@@ -10,6 +10,6 @@ const port: string = process.env.PORT || '3000';
 try {
   server.run(host, port);
 } catch (error) {
-  log.error(error);
+  console.error(error);
   process.exit(1);
 }
