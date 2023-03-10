@@ -22,7 +22,7 @@ export class WinstonAdapter implements LogPort {
     this.logger.info(message);
   }
 
-  error(message: string): void {
+  error(message: string | Error): void {
     this.logger.error(message);
   }
 }

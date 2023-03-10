@@ -4,6 +4,8 @@ import { xssFilter, noSniff, hidePoweredBy, frameguard } from 'helmet';
 import compress from 'compression';
 import { registerRoutes } from './routes';
 import { Server } from 'http';
+import httpStatus from 'http-status';
+import errorHandler from 'errorhandler';
 import { ApplicationServerPort } from '../../domain/ports/application-server.port';
 
 export class ApplicationServerAdapter implements ApplicationServerPort {

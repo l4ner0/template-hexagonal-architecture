@@ -12,7 +12,10 @@ const port: string = process.env.PORT || '3000';
 
 try {
   server.run(host, port);
-} catch (error: any) {
-  log.error(error.message);
+} catch (error: Error | unknown) {
+  if (error instanceof Error) {
+    log.error(error.message);
+  }
+
   process.exit(1);
 }
