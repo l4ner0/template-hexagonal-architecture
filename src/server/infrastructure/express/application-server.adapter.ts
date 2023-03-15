@@ -4,15 +4,16 @@ import { xssFilter, noSniff, hidePoweredBy, frameguard } from 'helmet';
 import compress from 'compression';
 import { registerRoutes } from './routes';
 import { Server } from 'http';
-import httpStatus from 'http-status';
-import errorHandler from 'errorhandler';
 import { ApplicationServerPort } from '../../domain/ports/application-server.port';
+import { WinstonAdapter } from '../../../common/infrastructure/log/winston.adapter';
 
 export class ApplicationServerAdapter implements ApplicationServerPort {
   private app: Express;
+  private log: WinstonAdapter;
 
   constructor() {
     this.app = express();
+    this.log = new WinstonAdapter();
   }
 
   configRouters(): void {
