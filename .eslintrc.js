@@ -4,5 +4,6 @@ module.exports = {
   parserOptions: { ecmaVersion: 2016, sourceType: 'module' },
   rules: {
     'no-console': 'warn',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };
