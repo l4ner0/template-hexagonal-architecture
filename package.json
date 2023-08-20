@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsc && cross-env NODE_ENV=production NODE_PATH=build/app.js node build/app.js",
     "start:dev": "tsc && cross-env NODE_ENV=development NODE_PATH=build/app.js node build/app.js",
-    "start:local": "cross-env NODE_ENV=local NODE_PATH=src/app.ts ts-node-dev src/app.ts",
+    "start:local": "cross-env NODE_ENV=local NODE_PATH=src/app.ts ts-node-dev --files --transpile-only --respawn --inspect --project tsconfig.json src/app.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
