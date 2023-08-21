@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { OK, BAD_REQUEST, UNPROCESSABLE_ENTITY, INTERNAL_SERVER_ERROR } from 'http-status';
+import * as sentry from '@sentry/node'
 
 import { LogPort } from '../../../../libs/log/log.port';
 import { ValidatePaymentOperationUseCase } from '../../application/validations/validate-payment-operation.use-case';
@@ -36,6 +37,7 @@ export class TransactionController {
       const isValidate = await this.validatePaymentOperationUseCase.execute(payload);
       res.status(OK).send({ responseCode: '00', message: 'Operación válida', data: { isValidate } });
     } catch (error) {
+      sentry.captureException(error);
       if (error instanceof CreditNotFoundException) {
         this.log.error(error);
         res.status(UNPROCESSABLE_ENTITY).send({ responseCode: '01', message: error.message });
