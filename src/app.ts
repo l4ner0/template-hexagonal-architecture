@@ -33,7 +33,7 @@ setTimeout(() => {
 }, 99); */
 
 const host: string = process.env.HOST || '0.0.0.0';
-const port: string = process.env.PORT || '3000';
+const port: string = process.env.PORT || '3001';
 
 try {
   new ApplicationServer().run(host, port);
